@@ -18,11 +18,21 @@ export class AppComponent implements OnInit {
   name = 'Angular ' + VERSION.major;
   buttonType = 'submit';
 
-  public buttonConfig: ButtonConfig = {
-    text: 'Test it',
+  public submitButtonConfig: ButtonConfig = {
+    text: 'Submit',
     buttonSize: '',
     buttonType: 'primary',
     iconURL: '',
+    imageUrl: '',
+    linkURL: '',
+  };
+
+  public resetButtonConfig: ButtonConfig = {
+    text: 'Reset',
+    buttonSize: '',
+    buttonType: 'secondary',
+    iconURL: 'icon-Requirements',
+    iconPosition: 'left',
     imageUrl: '',
     linkURL: '',
   };

@@ -1,7 +1,7 @@
 @import '../../style/settings/color';
 @import '../../style/spacing';
-@import '../../style/settings/mixins/common';
-@import '../../style/settings/mixins/flexbox';
+@import '../../style/mixins/common';
+@import '../../style/mixins/flexbox';
 
 %disabled {
   background-color: $dark-4;

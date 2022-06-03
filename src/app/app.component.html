@@ -1,28 +1,31 @@
-<!-- <button [ngSwitch]="buttonType">
-  <ng-template [ngSwitchCase]="'submit'">
-    {{ buttonType }}
-  </ng-template>
+<h1>Button component displays</h1>
 
-  <ng-template [ngSwitchCase]="'JavaScript'"> JavaScript Course </ng-template>
-  <ng-template [ngSwitchDefault]> HTML Course </ng-template>
-</button> -->
+<div>
+  Button submit active:
+  <collab-comp-button
+    type="button"
+    [buttonConfig]="submitButtonConfig"
+    [isBtnDisbaled]="false"
+  ></collab-comp-button>
+</div>
 
-<!-- <button class="button__primary">Primary</button>
-<button class="button__secondary">Secondary</button>
-<button class="button__error">Error</button> -->
+<div>
+  Button reset active:
+  <collab-comp-button
+    type="button"
+    [buttonConfig]="resetButtonConfig"
+    [isBtnDisbaled]="false"
+  ></collab-comp-button>
+</div>
 
-<collab-comp-button
-  type="button"
-  [buttonConfig]="buttonConfig"
-  [isBtnDisbaled]="true"
-></collab-comp-button>
-<br />
-<collab-comp-button
-  type="link"
-  [linkConfig]="linkConfig"
-  [isBtnDisbaled]="true"
-></collab-comp-button>
-<br />
+<div>
+  <collab-comp-button
+    type="link"
+    [linkConfig]="linkConfig"
+    [isBtnDisbaled]="true"
+  ></collab-comp-button>
+</div>
+
 <collab-comp-button
   type="add"
   [addButtonConfig]="addButtonConfig"
