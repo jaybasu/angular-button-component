@@ -1,0 +1,104 @@
+//Cross browser CSS3 mixins
+
+@mixin box-shadow($left, $top, $radius, $color, $inset: false) {
+  @if $inset {
+    box-shadow: inset $left $top $radius $color;
+    -webkit-box-shadow: inset $left $top $radius $color;
+    -moz-box-shadow: inset $left $top $radius $color;
+  } @else {
+    box-shadow: $left $top $radius $color;
+    -webkit-box-shadow: $left $top $radius $color;
+    -moz-box-shadow: $left $top $radius $color;
+  }
+}
+
+@mixin transition($property, $duration, $easing: linear) {
+  transition: $property $duration $easing;
+  -webkit-transition: $property $duration $easing;
+  -moz-transition: $property $duration $easing;
+}
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+}
+
+@mixin border-radii($topleft, $topright, $bottomright, $bottomleft) {
+  border-top-left-radius: $topleft;
+  border-top-right-radius: $topright;
+  border-bottom-right-radius: $bottomright;
+  border-bottom-left-radius: $bottomleft;
+  -webkit-border-top-left-radius: $topleft;
+  -webkit-border-top-right-radius: $topright;
+  -webkit-border-bottom-right-radius: $bottomright;
+  -webkit-border-bottom-left-radius: $bottomleft;
+  -moz-border-radius-topleft: $topleft;
+  -moz-border-radius-topright: $topright;
+  -moz-border-radius-bottomright: $bottomright;
+  -moz-border-radius-bottomleft: $bottomleft;
+}
+
+@mixin gradient($color1, $color2) {
+  background-color: $color1;
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#{$color1}, endColorstr=#{$color2});
+  background-image: -moz-linear-gradient(center top, $color1, $color2);
+  background-image: -webkit-gradient(
+    linear,
+    0% 0%,
+    0% 100%,
+    from($color1),
+    to($color2)
+  );
+}
+
+@mixin circle($size, $color, $display) {
+  display: $display;
+  line-height: $size;
+  width: $size;
+  height: $size;
+  background: $color;
+  -webkit-border-radius: $size/2;
+  -moz-border-radius: $size/2;
+  border-radius: $size/2;
+}
+
+@mixin horizontal-line-styles($color, $height) {
+  height: $height;
+  border: none;
+  background-color: $color;
+}
+
+@mixin vertical-line-styles($color, $width) {
+  width: $width;
+  border: none;
+  background-color: $color;
+}
+
+$max: 100;
+$offset: 5;
+$unit: 'px';
+
+@mixin list-loop($className, $styleName) {
+  $i: 0;
+  @while $i <= $max {
+    #{$className + $i} {
+      #{$styleName}: #{$i + $unit};
+    }
+    $i: $i + $offset;
+  }
+}
+
+// Margins
+@include list-loop('.m-t-', 'margin-top');
+@include list-loop('.m-r-', 'margin-right');
+@include list-loop('.m-b-', 'margin-bottom');
+@include list-loop('.m-l-', 'margin-left');
+@include list-loop('.m-x-', 'margin');
+
+// Paddings
+@include list-loop('.p-t-', 'padding-top');
+@include list-loop('.p-r-', 'padding-right');
+@include list-loop('.p-b-', 'padding-bottom');
+@include list-loop('.p-l-', 'padding-left');
+@include list-loop('.p-x-', 'padding');

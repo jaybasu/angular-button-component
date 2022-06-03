@@ -1,0 +1,59 @@
+<ng-container *ngIf="type === 'button'">
+  <button (click)="onClick($event)" [class]="(buttonConfig.iconURL && buttonConfig.iconURL !== null || undefined || '')
+      ? 'button__' +
+      buttonConfig.buttonType +
+      '--icon' +
+      (buttonConfig.iconPosition | titlecase) +
+      ' ' +
+      (buttonConfig.buttonSize === 'small'
+      ? 'button__' + buttonConfig.buttonType + '--small'
+      : '')
+      : 'button__' +
+      buttonConfig.buttonType +
+      ' ' +
+      (buttonConfig.buttonSize === 'small'
+      ? 'button__' + buttonConfig.buttonType + '--small'
+      : '')"
+          [disabled]="isBtnDisbaled" [type]="
+    buttonConfig.text === 'Submit' || buttonConfig.text === 'Reset'
+      ? (buttonConfig.text | lowercase)
+      : type
+  ">
+      <collab-comp-img-generator *ngIf="buttonConfig.iconURL" [altText]="buttonConfig.text" [class]="
+      buttonConfig.iconPosition === 'left'
+        ? 'padding__right--50'
+        : 'padding__left--50'
+    " [fontClassName]="buttonConfig.iconURL"></collab-comp-img-generator>
+      <collab-comp-img-generator *ngIf="buttonConfig.imageUrl" [altText]="buttonConfig.text"
+                                 [imgUrl]="buttonConfig.imageUrl" class="m-r-5"></collab-comp-img-generator>
+      {{ buttonConfig.text }}
+  </button>
+</ng-container>
+<ng-container *ngIf="type === 'link'">
+  <a [class]="(linkConfig.iconURL && linkConfig.iconURL !== '')
+          ? 'text__' + type + '--icon' + (linkConfig.iconPosition | titlecase)
+          : 'text__' + type"
+     [href]="linkConfig.hrefVal">
+      <collab-comp-img-generator *ngIf="linkConfig.iconURL" [altText]="linkConfig.linkText" [class]="
+      linkConfig.iconPosition === 'left'
+        ? 'padding__right--50'
+        : 'padding__left--50'
+    " [fontClassName]="linkConfig.iconURL"></collab-comp-img-generator>
+      {{ linkConfig.linkText }}
+  </a>
+</ng-container>
+<ng-container *ngIf="type === 'add'">
+  <button (click)="onClick($event)" [disabled]="isBtnDisbaled" class="button__add" type="button">
+<!--        <collab-comp-img-generator *ngIf="addButtonConfig.iconURL" [altText]="addButtonConfig.text"-->
+<!--                                   [fontClassName]="addButtonConfig.iconURL"-->
+<!--                                   class="padding__bottom&#45;&#45;100"></collab-comp-img-generator>-->
+      {{ addButtonConfig.text }}
+  </button>
+</ng-container>
+<ng-container *ngIf="type === 'icon'">
+  <button (click)="onClick($event)" [disabled]="isBtnDisbaled" class="button__icon" type="button">
+      <collab-comp-img-generator *ngIf="iconButtonConfig.iconURL" [altText]=""
+                                 [fontClassName]="iconButtonConfig.iconURL" class=""></collab-comp-img-generator>
+      <span class="sr-only">{{ iconButtonConfig.text }}</span>
+  </button>
+</ng-container>
