@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
   name = 'Angular ' + VERSION.major;
-  buttonType = 'submit';
+
 
   public submitButtonConfig: ButtonConfig = {
     text: 'Submit',
