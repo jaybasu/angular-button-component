@@ -1,0 +1,215 @@
+@use '../../style/settings/color';
+
+%beforeAnimation {
+  -moz-transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
+  -o-transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
+  -webkit-transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
+  transition: 0.2s cubic-bezier(0.24, 0, 0.5, 1);
+}
+
+%afterAnimation {
+  box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.1), 0 4px 0px 0 hsla(0, 0%, 0%, 0.04),
+    0 4px 9px hsla(0, 0%, 0%, 0.13), 0 3px 3px hsla(0, 0%, 0%, 0.05);
+  -moz-transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+  -o-transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+  -webkit-transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+  transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+}
+
+// Mobile Toggle Switch
+.checkboxWrapper {
+  display: flex;
+  &.label--right {
+    input[type='checkbox'] {
+      position: absolute !important;
+      padding: 0;
+      border: 0;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+      clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+      clip: rect(1px, 1px, 1px, 1px);
+
+      & + label {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        padding: 0 1.5rem 0 0;
+        cursor: pointer;
+        //line-height: 2.75rem;
+
+        &::before {
+          content: '';
+          //   position: relative;
+          // vertical-align: middle;
+          // display: inline-block;
+          @extend %beforeAnimation;
+          margin-right: 0.5rem;
+          height: 24px;
+          width: 48px;
+          background: color.$background-color-toggleswitch-off;
+          border: 1px solid color.$border-color-toggleswitch;
+          border-radius: calc(24px / 2);
+        }
+        &:after {
+          content: '';
+          position: absolute;
+          // vertical-align: middle;
+          // display: inline-block;
+          // .inactiveMixin;
+          @extend %afterAnimation;
+          background: color.$background-color-toggleswitch-knob;
+          height: 20px;
+          width: 20px;
+          // top: 0;
+          left: 0;
+          border-radius: 50%;
+          transform: translate(20%, 0%);
+        }
+      }
+
+      &:checked + label::before {
+        // content: "";
+        // position: absolute;
+        // top: 8px;
+        // left: 6px;
+        // border-left: 2px solid #2ecc71;
+        // border-bottom: 2px solid #2ecc71;
+        // height: 7px;
+        // width: 13px;
+        // transform: rotate(-48deg);
+        background: color.$background-color-toggleswitch-on; // Active Color
+        -moz-transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
+        -o-transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
+        -webkit-transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
+        transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
+      }
+      &:checked + label:after {
+        left: calc(48px - 20px);
+        transform: translate(-20%, 0%);
+      }
+
+      &:focus + label::before {
+        outline: #2ecc71 solid 2px;
+        outline-offset: 0.1rem;
+      }
+
+      &:disabled + label {
+        border-color: red;
+
+        &::before {
+          background: #dadada;
+        }
+
+        &::after {
+          color: red;
+        }
+      }
+    }
+
+    // input[type='checkbox']:checked + label::before {
+    //   background: #5ac5c9;
+    // }
+  }
+}
+
+.checkboxWrapper {
+  display: flex;
+  &.label--left {
+    input[type='checkbox'] {
+      position: absolute !important;
+      padding: 0;
+      border: 0;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+      clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+      clip: rect(1px, 1px, 1px, 1px);
+
+      & + label {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-flow: row-reverse;
+        // display: block;
+        position: relative;
+        padding: 0 1.5rem 0 0;
+        cursor: pointer;
+        //line-height: 2.75rem;
+
+        &::before {
+          content: '';
+          line-height: 24px;
+          // position: relative;
+          // vertical-align: middle;
+          // display: inline-block;
+          @extend %beforeAnimation;
+          margin-left: 0.5rem;
+          height: 24px;
+          width: 48px;
+          background: color.$background-color-toggleswitch-off;
+          border: 1px solid color.$border-color-toggleswitch;
+          border-radius: calc(24px / 2);
+        }
+        &:after {
+          content: '';
+          position: absolute;
+          // vertical-align: middle;
+          // display: inline-block;
+          // .inactiveMixin;
+          @extend %afterAnimation;
+          background: color.$background-color-toggleswitch-knob;
+          height: 20px;
+          width: 20px;
+          // top: 0;
+          right: calc(48px + 0.5rem);
+          border-radius: 50%;
+          transform: translate(35%, 0%);
+        }
+      }
+
+      &:checked + label::before {
+        // content: "";
+        // position: absolute;
+        // top: 8px;
+        // left: 6px;
+        // border-left: 2px solid #2ecc71;
+        // border-bottom: 2px solid #2ecc71;
+        // height: 7px;
+        // width: 13px;
+        // transform: rotate(-48deg);
+        background: color.$background-color-toggleswitch-on; // Active Color
+        -moz-transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
+        -o-transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
+        -webkit-transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
+        transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
+      }
+      &:checked + label:after {
+        right: calc((48px - 20px) - 0.5rem);
+        transform: translate(-35%, 0%);
+      }
+
+      &:focus + label::before {
+        outline: #2ecc71 solid 2px;
+        outline-offset: 0.1rem;
+      }
+
+      &:disabled + label {
+        border-color: red;
+
+        &::before {
+          background: #dadada;
+        }
+
+        &::after {
+          color: red;
+        }
+      }
+    }
+
+    // input[type='checkbox']:checked + label::before {
+    //   background: #5ac5c9;
+    // }
+  }
+}

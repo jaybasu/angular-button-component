@@ -14,29 +14,29 @@ $white: rgb(255, 255, 255);
 $black: rgb(0, 0, 0);
 
 /********* PRIMARY ***********/
-$accent-primary: rgb(0, 64, 221);
-$accent-primary-alt: rgb(0, 74, 151);
-$secondary: rgb(38, 202, 211);
-$secondary-1: rgb(0, 153, 168);
-/*$primary: rgb(0, 85, 184);*/
+$accent-primary: rgb(40, 78, 128);
+$accent-primary-alt: rgb(28, 107, 186);
+$secondary: rgb(42, 96, 157);
+$secondary-1: rgb(43, 103, 205);
 
-/********* BLUE ***********/
-//$blue-1: rgb(0, 101, 16);
-//$blue-2: rgb(0, 147, 201);
-//$blue-3: rgb(0, 155, 222);
-//$blue-4: rgb(78, 193, 224);
+/********* TERTIARY ***********/
+$tertiary-1: rgb(32, 42, 68);
+$tertiary-2: rgb(27, 54, 93);
+$tertiary-3: rgb(112, 137, 172);
+$tertiary-4: rgb(206, 217, 229);
 
 /********* DARK ***********/
 $dark-1: $black;
-$dark-2: rgb(17, 24, 39);
-$dark-3: rgb(119, 119, 122);
-$dark-4: rgb(203, 203, 203);
+$dark-2: rgb(20, 20, 20);
+$dark-3: rgb(83, 86, 90);
+$dark-4: rgb(112, 112, 112);
+$dark-5: rgb(213, 213, 213);
 
 /********* LIGHT ***********/
 $light-1: $white;
-$light-2: rgb(244, 244, 244);
-$light-3: rgb(245, 245, 251);
-$light-4: rgb(238, 238, 240);
+$light-2: rgb(250, 250, 250);
+$light-3: rgb(245, 245, 245);
+$light-4: rgb(234, 234, 234);
 
 /********* ACCENT ALTERNATES ***********/
 $alternate-Accent-1: rgb(15, 99, 214);
@@ -45,17 +45,22 @@ $alternate-Accent-3: rgb(0, 155, 222);
 $alternate-Accent-4: rgb(238, 244, 250);
 
 /********* STATUS ***********/
-$error: rgb(142, 0, 0);
+$error: rgb(191, 32, 18);
 $error-alt: rgb(221, 34, 37);
 $warning: rgb(122, 89, 0);
-$success: rgb(0, 116, 0);
+$warning-alt: rgb(168, 101, 0);
+$success: rgb(5, 138, 48);
 
 // Assigning color to element
 $body-bg: $white;
-$main-content-bg: $light-3;
+$main-content-bg: $white;
 $error: $error;
 $success: $success;
 $warning: $warning;
+
+// Header
+$header-bg: $accent-primary;
+$header-text: $white;
 
 // Navigation
 $nav-bg: $white;
@@ -68,15 +73,17 @@ $nav-right-border: $dark-4;
 // Input
 $button-primary-text: $white;
 $button-primary-background: $accent-primary;
-$button-primary-hover-background: $alternate-Accent-1;
+$button-primary-hover-background: $black;
 $button-primary-active-background: $accent-primary-alt;
 
-$button-secondary-text: $dark-2;
+$button-secondary-text: $secondary;
 $button-secondary-background: $white;
-$button-secondary-border: $dark-2;
-$button-secondary-hover-textColor: $alternate-Accent-1;
-$button-secondary-active-textColor: $accent-primary;
-$button-secondary-active-border: $accent-primary;
+$button-secondary-border: $secondary;
+$button-secondary-hover-textColor: $white;
+$button-secondary-hover-background: $secondary;
+$button-secondary-hover-border: $secondary;
+$button-secondary-active-textColor: $white;
+$button-secondary-active-border: $secondary;
 
 $button-error-text: $white;
 $button-error-background: $error;
@@ -86,3 +93,28 @@ $button-error-active-textColor: $accent-primary;
 $button-error-active-border: $accent-primary;
 
 $text-link-text: $accent-primary;
+
+// Tabs
+$tab-text-regular: $dark-4;
+$tab-text-selected: $accent-primary;
+$tab-underline-regular: $dark-4;
+$tab-underline-selected: $accent-primary-alt;
+$tab-underline-divider: $dark-5;
+
+// Formfields
+$border-color-textbox: $dark-5;
+$border-color-select: $dark-5;
+$border-color-textarea: $dark-5;
+$border-color-toggleswitch: transparent;
+$background-color-textbox: $white;
+$background-color-select: $white;
+$background-color-textarea: $white;
+$background-color-toggleswitch-off: $dark-4;
+$background-color-toggleswitch-on: $accent-primary;
+$background-color-toggleswitch-knob: $white;
+$font-color-textbox: inherit;
+$font-color-select: inherit;
+$font-color-textarea: inherit;
+$formfield-focus: $accent-primary;
+$disabled-font-color: $dark-4;
+$disabled-background-color: $light-3;
