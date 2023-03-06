@@ -57,7 +57,7 @@ $toggle-switch-knob-height: 1.25rem;
           width: $toggle-switch-width;
           background: color.$background-color-toggleswitch-off;
           border: 1px solid color.$border-color-toggleswitch;
-          border-radius: calc($toggle-switch-height / 2);
+          border-radius: calc(#{$toggle-switch-height} / 2);
         }
         &:after {
           content: '';
@@ -157,7 +157,7 @@ $toggle-switch-knob-height: 1.25rem;
           width: $toggle-switch-width;
           background: color.$background-color-toggleswitch-off;
           border: 1px solid color.$border-color-toggleswitch;
-          border-radius: calc($toggle-switch-height / 2);
+          border-radius: calc(#{$toggle-switch-height} / 2);
         }
         &:after {
           content: '';
