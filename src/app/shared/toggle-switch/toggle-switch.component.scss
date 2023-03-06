@@ -93,12 +93,12 @@ $toggle-switch-knob-height: 1.25rem;
         transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
       }
       &:checked + label:after {
-        left: calc($toggle-switch-width - $toggle-switch-knob-width);
+        left: calc(#{$toggle-switch-width} - #{$toggle-switch-knob-width});
         transform: translate(-20%, 0%);
       }
 
       &:focus + label::before {
-        outline: #2ecc71 solid 2px;
+        outline: $input-focus-color solid 2px;
         outline-offset: 0.1rem;
       }
 
@@ -170,7 +170,7 @@ $toggle-switch-knob-height: 1.25rem;
           height: $toggle-switch-knob-height;
           width: $toggle-switch-knob-width;
           // top: 0;
-          right: calc($toggle-switch-width + $toggle-switch-labelPadding);
+          right: calc(#{$toggle-switch-width} + #{$toggle-switch-labelPadding});
           border-radius: 50%;
           transform: translate(35%, 0%);
         }
@@ -194,8 +194,7 @@ $toggle-switch-knob-height: 1.25rem;
       }
       &:checked + label:after {
         right: calc(
-          ($toggle-switch-width - $toggle-switch-knob-height) -
-            $toggle-switch-labelPadding
+          (#{$toggle-switch-width} - #{$toggle-switch-knob-height}) - #{$toggle-switch-labelPadding}
         );
         transform: translate(-35%, 0%);
       }
