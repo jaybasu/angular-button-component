@@ -17,7 +17,6 @@ export class AppComponent implements OnInit {
   }
   name = 'Angular ' + VERSION.major;
 
-
   public submitButtonConfig: ButtonConfig = {
     text: 'Submit',
     buttonSize: '',
