@@ -1,18 +1,20 @@
-<div class="checkboxWrapper label--right">
-  <input type="checkbox" name="check" class="" id="check" checked />
-  <label for="check">djfhkgdfjkgdf</label>
-</div>
-<div class="wrap">
-  <div class="checkboxWrapper label--left">
-    <input type="checkbox" name="check1" class="" id="check1" checked />
-    <label for="check1">djhjgjhkgjkg</label>
-  </div>
-  <div class="checkboxWrapper label--left">
-    <input type="checkbox" name="check2" class="" id="check2" checked />
-    <label for="check2">djhdhgjkgjadk</label>
-    <div class="slider--icons">
-      <span>T</span>
-      <span>C</span>
-    </div>
-  </div>
+<div class="toggle-switch--Wrapper" [class]="'label--' + labelPosition">
+  <!-- <label [for]="id" showLabel="isShowLabel" labelPosition="labelPosition">{{
+  label
+}}</label> -->
+  <input
+    type="checkbox"
+    [id]="id"
+    [value]="value"
+    [name]="id"
+    [required]="required"
+    [checked]="checked"
+    [disabled]="disabled"
+    [attr.aria-checked]="checked"
+    (click)="onClick($event)"
+    (keyup.enter)="onClick($event)"
+  />
+  <label [for]="id" showLabel="isShowLabel" labelPosition="labelPosition">{{
+    label
+  }}</label>
 </div>

@@ -22,9 +22,9 @@ $toggle-switch-knob-height: 1.25rem;
   transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
 }
 
-// Mobile Toggle Switch
-.checkboxWrapper {
+.toggle-switch--Wrapper {
   display: flex;
+
   &.label--right {
     input[type='checkbox'] {
       position: absolute !important;
@@ -48,7 +48,7 @@ $toggle-switch-knob-height: 1.25rem;
         &::before {
           content: '';
           line-height: $toggle-switch-height;
-          //   position: relative;
+          // position: relative;
           // vertical-align: middle;
           // display: inline-block;
           @extend %beforeAnimation;
@@ -59,6 +59,7 @@ $toggle-switch-knob-height: 1.25rem;
           border: 1px solid color.$border-color-toggleswitch;
           border-radius: calc(#{$toggle-switch-height} / 2);
         }
+
         &:after {
           content: '';
           position: absolute;
@@ -92,25 +93,22 @@ $toggle-switch-knob-height: 1.25rem;
         -webkit-transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
         transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
       }
+
       &:checked + label:after {
         left: calc(#{$toggle-switch-width} - #{$toggle-switch-knob-width});
-        transform: translate(-20%, 0%);
+        transform: translate(-5%, 0%);
       }
 
       &:focus + label::before {
-        outline: $input-focus-color solid 2px;
+        outline: color.$input-focus-color solid 2px;
         outline-offset: 0.1rem;
       }
 
       &:disabled + label {
-        border-color: red;
+        cursor: not-allowed;
 
         &::before {
-          background: #dadada;
-        }
-
-        &::after {
-          color: red;
+          background: color.$light-4;
         }
       }
     }
@@ -121,8 +119,9 @@ $toggle-switch-knob-height: 1.25rem;
   }
 }
 
-.checkboxWrapper {
+.toggle-switch--Wrapper {
   display: flex;
+
   &.label--left {
     input[type='checkbox'] {
       position: absolute !important;
@@ -159,6 +158,7 @@ $toggle-switch-knob-height: 1.25rem;
           border: 1px solid color.$border-color-toggleswitch;
           border-radius: calc(#{$toggle-switch-height} / 2);
         }
+
         &:after {
           content: '';
           position: absolute;
@@ -192,6 +192,7 @@ $toggle-switch-knob-height: 1.25rem;
         -webkit-transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
         transition: width 0.2s cubic-bezier(0, 0, 0, 0.1);
       }
+
       &:checked + label:after {
         right: calc(
           (#{$toggle-switch-width} - #{$toggle-switch-knob-height}) - #{$toggle-switch-labelPadding}
@@ -200,19 +201,15 @@ $toggle-switch-knob-height: 1.25rem;
       }
 
       &:focus + label::before {
-        outline: #2ecc71 solid 2px;
+        outline: color.$input-focus-color solid 2px;
         outline-offset: 0.1rem;
       }
 
       &:disabled + label {
-        border-color: red;
+        cursor: not-allowed;
 
         &::before {
-          background: #dadada;
-        }
-
-        &::after {
-          color: red;
+          background: color.$light-4;
         }
       }
     }
