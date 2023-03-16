@@ -52,11 +52,11 @@ export class AppComponent implements OnInit {
 
   public iconButtonConfig: IconButtonConfig = {
     buttonSize: 'large',
-    iconURL: 'icon-Requirements',
+    iconURL: 'icon-Download',
     imageUrl: '',
     text: 'Test it',
     linkURL: '',
-    outline: true,
+    outline: false,
     shape: 'Square',
   };
 }
