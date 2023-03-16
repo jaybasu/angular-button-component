@@ -14,10 +14,11 @@ $unit: 'rem'; // Feel free to change the unit.
   }
 }
 
-$rules: [ [margin__left, margin-left], [margin__top, margin-top], [margin__right,
-  margin-right], [margin__bottom, margin-bottom], [padding__left, padding-left],
-  [padding__top, padding-top], [padding__right, padding-right], [padding__bottom,
-  padding-bottom], ];
+$rules: [ [margin, margin], [margin__left, margin-left], [margin__top,
+  margin-top], [margin__right, margin-right], [margin__bottom, margin-bottom],
+  [padding, padding], [padding__left, padding-left], [padding__top, padding-top],
+  [padding__right, padding-right], [padding__bottom, padding-bottom], [gap, gap],
+  ];
 
 @each $item in $rules {
   @include generate(nth($item, 1), nth($item, 2));
