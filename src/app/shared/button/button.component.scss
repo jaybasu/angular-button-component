@@ -1,5 +1,4 @@
 @import '../../style/settings/color';
-@import '../../style/spacing';
 @import '../../style/mixins/common';
 @import '../../style/mixins/flexbox';
 
@@ -13,15 +12,16 @@
 }
 
 button {
-  border-radius: 0.5rem;
+  @include border-radius(0.5rem);
   border: none;
   font-size: 1rem;
+  line-height: 1.5rem;
   width: fit-content;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: row;
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(flex-start);
+  @include flex-direction(row);
 }
 
 .button {
@@ -36,6 +36,7 @@ button {
     &--small {
       padding: 0.5rem 0.75rem;
     }
+
     &:disabled {
       @extend %disabled;
     }
@@ -53,17 +54,23 @@ button {
     width: 210px;
     height: 146px;
     border: 1px solid $dark-4;
+
     &:before {
       font-family: 'icomoon';
-      content: '\e950';
-      font-size: 3.25rem;
+      content: '\e954';
+      font-size: 4rem;
       color: $accent-primary;
-      padding-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
     }
   }
 
   &__icon {
     background-color: $white;
+
+    &-outline {
+      background-color: rgba(white, 1);
+      border: $dark-3 1px solid;
+    }
 
     &:disabled {
       @extend %disabled;
@@ -80,7 +87,7 @@ button {
     }
 
     &--iconRight {
-      flex-direction: row-reverse;
+      @include flex-direction(row-reverse);
     }
 
     &:hover:enabled,
@@ -104,7 +111,7 @@ button {
     }
 
     &--iconRight {
-      flex-direction: row-reverse;
+      @include flex-direction(row-reverse);
     }
 
     &:hover:enabled,
@@ -128,7 +135,7 @@ button {
     }
 
     &--iconRight {
-      flex-direction: row-reverse;
+      @include flex-direction(row-reverse);
     }
 
     &:hover:enabled,
@@ -144,10 +151,10 @@ button {
   // background-color: $button-primary-background;
   width: fit-content;
   text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: row;
+  @include inline-flex;
+  @include align-items(center);
+  @include justify-content(flex-start);
+  @include flex-direction(row);
 
   &--iconLeft,
   &--iconRight {
@@ -155,12 +162,12 @@ button {
   }
 
   &--iconRight {
-    flex-direction: row-reverse;
+    @include flex-direction(row-reverse);
   }
 
-  &:hover,
-  &:active,
-  &:visited {
-    text-decoration: underline;
+  &:hover:enabled,
+  &:active:enabled,
+  &:visited:enabled {
+    @include flex-direction(row-reverse);
   }
 }

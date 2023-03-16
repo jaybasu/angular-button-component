@@ -28,6 +28,7 @@ export interface IconButtonConfig {
 export interface LinkConfig {
   hrefVal: string;
   linkText: string;
+  target?: string;
   iconURL?: string; // provide iconURL
   iconPosition?: string; // left or right
 }
