@@ -1,0 +1,32 @@
+<div class="carousel-container">
+  <div
+    class="slide-container"
+    [@slideAnimation]="{
+      value: slideDirection,
+      params: {
+        transitionDuration: transitionDuration,
+        transitionStyle: transitionStyle
+      }
+    }"
+  >
+    <div
+      class="slide"
+      *ngFor="let slide of slides; let i = index"
+      [ngClass]="{ active: i === currentIndex }"
+    >
+      <img [src]="slide.image" alt="" />
+    </div>
+  </div>
+
+  <div class="dot-container">
+    <span
+      class="dot"
+      *ngFor="let slide of slides; let i = index"
+      (click)="currentIndex = i"
+      [ngClass]="{ active: i === currentIndex }"
+    ></span>
+  </div>
+
+  <button class="prev-btn" (click)="prevSlide()">&lt;</button>
+  <button class="next-btn" (click)="nextSlide()">&gt;</button>
+</div>

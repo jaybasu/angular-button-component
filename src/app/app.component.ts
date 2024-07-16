@@ -59,4 +59,22 @@ export class AppComponent implements OnInit {
     outline: false,
     shape: 'Square',
   };
+
+  // public slides: Slide[] = [
+  //   {
+  //     imageUrl: "https://example.com/image1.jpg",
+  //     title: "Welcome to Our Presentation",
+  //     subtitle: "A Brief Overview"
+  //   },
+  //   {
+  //     imageUrl: "https://example.com/image2.png",
+  //     title: "Our Mission",
+  //     description: "Empowering people through innovation"
+  //   },
+  //   {
+  //     imageUrl: "https://example.com/image3.svg",
+  //     title: "Key Product Features",
+  //     features: ["Fast", "Reliable", "User-friendly"]
+  //   }
+  // ];
 }
