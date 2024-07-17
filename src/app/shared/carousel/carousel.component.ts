@@ -26,10 +26,10 @@ import {
   animations: [
     trigger('slideAnimation', [
       /* fade */
-      transition('void => fade', [
+      transition('void => ${this.transitionProperties.transitionStyle}', [
         useAnimation(fadeIn, { params: { time: '500ms' } }),
       ]),
-      transition('fade => void', [
+      transition('${this.transitionProperties.transitionStyle} => void', [
         useAnimation(fadeOut, { params: { time: '500ms' } }),
       ]),
     ]),
