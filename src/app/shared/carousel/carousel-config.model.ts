@@ -1,15 +1,15 @@
-export interface SlideDirection {
-  Left = 'left',
-  Right = 'right',
-  Top = 'top',
-  Bottom = 'bottom'
-}
+// export interface SlideDirection {
+//   Left = 'left',
+//   Right = 'right',
+//   Top = 'top',
+//   Bottom = 'bottom'
+// }
 
-enum TransitionStyle {
-  Fade = 'fade' // Add more styles as needed
-}
+// enum TransitionStyle {
+//   Fade = 'fade' // Add more styles as needed
+// }
 
-interface Slide {
+export interface Slide {
   slideImageUrl: string; // Or other data as needed
   slideHeading: string;
   slideDescriptionText?: string; // Allow for additional slide data

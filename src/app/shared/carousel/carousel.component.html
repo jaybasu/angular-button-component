@@ -1,14 +1,5 @@
 <div class="carousel-container">
-  <div
-    class="slide-container"
-    [@slideAnimation]="{
-      value: slideDirection,
-      params: {
-        transitionDuration: transitionDuration,
-        transitionStyle: transitionStyle
-      }
-    }"
-  >
+  <div class="slide-container">
     <div
       class="slide"
       *ngFor="let slide of slides; let i = index"

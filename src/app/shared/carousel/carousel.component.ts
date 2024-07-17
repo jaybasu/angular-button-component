@@ -1,40 +1,28 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
-
-interface Slide {
-  // Image URL or any content to be displayed
-  content: string;
-}
+import { Slide } from './carousel-config.model';
 
 @Component({
-  selector: 'app-carousel',
+  selector: 'ascendion-play-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss'],
-  animations: [
-    trigger('slideAnimation', [
-      transition(':increment', [
-        // Left/top to right/bottom
-        style({ transform: 'translateX(-100%)' }),
-        animate(
-          '{{duration}}ms {{easing}}',
-          style({ transform: 'translateX(0)' })
-        ),
-      ]),
-      transition(':decrement', [
-        // Right/bottom to left/top
-        style({ transform: 'translateX(100%)' }),
-        animate(
-          '{{duration}}ms {{easing}}',
-          style({ transform: 'translateX(0)' })
-        ),
-      ]),
-    ]),
-  ],
+  // animations: [
+  //   trigger('slideAnimation', [
+  //     /* fade */
+  //     transition('void => fade', [
+  //       useAnimation(fadeIn, { params: { time: '500ms' } }),
+  //     ]),
+  //     transition('fade => void', [
+  //       useAnimation(fadeOut, { params: { time: '500ms' } }),
+  //     ]),
+  //   ]),
+  // ],
 })
 export class CarouselComponent implements OnInit {
   @Input() slides: Slide[] = [];
   @Input() transitionDuration: number = 500;
-  @Input() slideDirection: 'left' | 'right' | 'top' | 'bottom' = 'left';
+  @Input() slideDirection?: 'left' | 'right' | 'top' | 'bottom' = 'left';
+  @Input() transitionStyle: 'fade' | 'slide' | 'scale' | 'flip' = 'fade';
 
   currentSlideIndex = 0;
 
