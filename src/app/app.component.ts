@@ -62,21 +62,36 @@ export class AppComponent implements OnInit {
     shape: 'Square',
   };
 
-  // public slides: Slide[] = [
-  //   {
-  //     imageUrl: "https://example.com/image1.jpg",
-  //     title: "Welcome to Our Presentation",
-  //     subtitle: "A Brief Overview"
-  //   },
-  //   {
-  //     imageUrl: "https://example.com/image2.png",
-  //     title: "Our Mission",
-  //     description: "Empowering people through innovation"
-  //   },
-  //   {
-  //     imageUrl: "https://example.com/image3.svg",
-  //     title: "Key Product Features",
-  //     features: ["Fast", "Reliable", "User-friendly"]
-  //   }
-  // ];
+  public mainPageCarousel: Slide[] = [
+    {
+      slideImageUrl:
+        'https://fastly.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU',
+      slideHeading: 'Welcome to Our Presentation',
+      slideDescriptionText: 'A Brief Overview',
+    },
+    {
+      slideImageUrl:
+        'https://fastly.picsum.photos/id/1/5000/3333.jpg?hmac=Asv2DU3rA_5D1xSe22xZK47WEAN0wjWeFOhzd13ujW4',
+      slideHeading: 'Our Mission',
+      slideDescriptionText: 'Empowering people through innovation',
+    },
+    {
+      slideImageUrl:
+        'https://fastly.picsum.photos/id/2/5000/3333.jpg?hmac=_KDkqQVttXw_nM-RyJfLImIbafFrqLsuGO5YuHqD-qQ',
+      slideHeading: 'Key Product Features',
+      slideDescriptionText: 'Lets check it',
+    },
+    {
+      slideImageUrl:
+        'https://fastly.picsum.photos/id/7/4728/3168.jpg?hmac=c5B5tfYFM9blHHMhuu4UKmhnbZoJqrzNOP9xjkV4w3o',
+      slideHeading: 'Key Product Features',
+      slideDescriptionText: 'Lets check it',
+    },
+    {
+      slideImageUrl:
+        'https://fastly.picsum.photos/id/9/5000/3269.jpg?hmac=cZKbaLeduq7rNB8X-bigYO8bvPIWtT-mh8GRXtU3vPc',
+      slideHeading: 'Key Product Features',
+      slideDescriptionText: 'Lets check it',
+    },
+  ];
 }

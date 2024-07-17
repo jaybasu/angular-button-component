@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Slide } from './carousel-config.model';
+import { Slide, TransitionProperties } from './carousel-config.model';
 
 @Component({
   selector: 'ascendion-play-carousel',
@@ -20,9 +20,16 @@ import { Slide } from './carousel-config.model';
 })
 export class CarouselComponent implements OnInit {
   @Input() slides: Slide[] = [];
-  @Input() transitionDuration: number = 500;
-  @Input() slideDirection?: 'left' | 'right' | 'top' | 'bottom' = 'left';
-  @Input() transitionStyle: 'fade' | 'slide' | 'scale' | 'flip' = 'fade';
+  @Input() transitionProperties: TransitionProperties = {
+    // Default values
+    transitionStyle: 'fade',
+    slideDirection: 'left',
+    transitionDuration: 500, // milliseconds
+  };
+
+  // @Input() transitionDuration: number = 500;
+  // @Input() slideDirection?: 'left' | 'right' | 'top' | 'bottom' = 'left';
+  // @Input() transitionStyle: 'fade' | 'slide' | 'scale' | 'flip' = 'fade';
 
   currentSlideIndex = 0;
 

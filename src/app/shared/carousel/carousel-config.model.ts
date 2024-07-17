@@ -14,3 +14,9 @@ export interface Slide {
   slideHeading: string;
   slideDescriptionText?: string; // Allow for additional slide data
 }
+
+export interface TransitionProperties {
+  transitionStyle: 'fade' | 'slide' | 'scale' | 'flip'; // Or other data as needed
+  slideDirection?: 'left' | 'right' | 'top' | 'bottom';
+  transitionDuration: number; // Allow for additional slide data
+}

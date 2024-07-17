@@ -5,7 +5,7 @@
       *ngFor="let slide of slides; let i = index"
       [ngClass]="{ active: i === currentSlideIndex }"
     >
-      <img [src]="slide.image" alt="" />
+      <img [src]="slide.slideImageUrl" alt="" width="10%" />
     </div>
   </div>
 
@@ -15,7 +15,7 @@
       *ngFor="let slide of slides; let i = index"
       (click)="currentSlideIndex = i"
       [ngClass]="{ active: i === currentSlideIndex }"
-    ></span>
+    >A</span>
   </div>
 
   <button class="prev-btn" (click)="prevSlide()">&lt;</button>
