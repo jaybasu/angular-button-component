@@ -20,3 +20,8 @@ export interface TransitionProperties {
   slideDirection?: 'left' | 'right' | 'top' | 'bottom';
   transitionDuration: number; // Allow for additional slide data
 }
+
+export interface Carousel {
+  autoPlay: boolean; // Or other data as needed
+  autoPlayInterval: number;
+}

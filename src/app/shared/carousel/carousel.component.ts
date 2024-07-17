@@ -1,22 +1,39 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { animate, style, transition, trigger } from '@angular/animations';
+import {
+  animate,
+  style,
+  transition,
+  trigger,
+  useAnimation,
+} from '@angular/animations';
 import { Slide, TransitionProperties } from './carousel-config.model';
+
+import {
+  scaleIn,
+  scaleOut,
+  fadeIn,
+  fadeOut,
+  flipIn,
+  flipOut,
+  jackIn,
+  jackOut,
+} from './carousel.animations';
 
 @Component({
   selector: 'ascendion-play-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss'],
-  // animations: [
-  //   trigger('slideAnimation', [
-  //     /* fade */
-  //     transition('void => fade', [
-  //       useAnimation(fadeIn, { params: { time: '500ms' } }),
-  //     ]),
-  //     transition('fade => void', [
-  //       useAnimation(fadeOut, { params: { time: '500ms' } }),
-  //     ]),
-  //   ]),
-  // ],
+  animations: [
+    trigger('slideAnimation', [
+      /* fade */
+      transition('void => fade', [
+        useAnimation(fadeIn, { params: { time: '500ms' } }),
+      ]),
+      transition('fade => void', [
+        useAnimation(fadeOut, { params: { time: '500ms' } }),
+      ]),
+    ]),
+  ],
 })
 export class CarouselComponent implements OnInit {
   @Input() slides: Slide[] = [];
