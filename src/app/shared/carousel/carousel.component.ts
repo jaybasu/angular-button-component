@@ -90,10 +90,11 @@ export class CarouselComponent implements OnInit {
       (this.currentSlideIndex - 1 + this.slides.length) % this.slides.length;
   }
   createTransitionAnimation(animationFn: AnimationReferenceMetadata) {
+    const duration = this.transitionProperties.transitionDuration ?? 500;
     console.log(this.transitionProperties.transitionDuration);
     return [
       useAnimation(animationFn, {
-        params: { time: `${this.transitionProperties.transitionDuration}ms` },
+        params: { time: `${duration}ms` },
       }),
     ];
   }
