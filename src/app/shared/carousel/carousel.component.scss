@@ -14,17 +14,21 @@
 .carousel {
   display: flex;
   // position: relative;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 0.5em;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  // height: 100%;
+  // width: 100%;
+  // overflow: hidden;
+  // border-radius: 0.5em;
 }
 
 .slide {
   // position: absolute;
   flex-basis: 20%;
-  top: 0;
-  left: 0;
+  // top: 0;
+  // left: 0;
   // width: 100%;
   // height: 100%;
   object-fit: cover;
@@ -33,9 +37,9 @@
   border-radius: 0.5em;
 }
 
-.slide:hover {
-  transform: scale(1.025);
-}
+// .slide:hover {
+//   transform: scale(1.025);
+// }
 
 // // =========================
 // // Next and Prev buttons
