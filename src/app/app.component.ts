@@ -6,7 +6,10 @@ import {
   LinkConfig,
 } from './shared/button/button-config.model';
 
-import { Slide } from './shared/carousel/carousel-config.model';
+import {
+  Slide,
+  TransitionProperties,
+} from './shared/carousel/carousel-config.model';
 
 @Component({
   selector: 'my-app',
@@ -94,4 +97,11 @@ export class AppComponent implements OnInit {
       slideDescriptionText: 'Lets check it',
     },
   ];
+
+  public test: TransitionProperties = {
+    // Default values
+    transitionStyle: 'scale',
+    slideDirection: 'left',
+    transitionDuration: 500,
+  };
 }

@@ -22,12 +22,12 @@ import {
       /* scale */
       transition('void => scale', [
         useAnimation(scaleIn, {
-          params: { time: '${this.TransitionProperties.transitionDuration}ms' },
+          params: { time: '${this.transitionProperties.transitionDuration}ms' },
         }),
       ]),
       transition('scale => void', [
         useAnimation(scaleOut, {
-          params: { time: '${this.TransitionProperties.transitionDuration}ms' },
+          params: { time: '${this.transitionProperties.transitionDuration}ms' },
         }),
       ]),
 
@@ -97,4 +97,6 @@ export class CarouselComponent implements OnInit {
     this.currentSlideIndex =
       (this.currentSlideIndex - 1 + this.slides.length) % this.slides.length;
   }
+
+  // public slideTransitionStyle = this.transitionProperties.transitionStyle;
 }
