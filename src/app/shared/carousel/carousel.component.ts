@@ -85,7 +85,7 @@ export class CarouselComponent implements OnInit {
   @Input() carousel: Carousel = {
     // Default values
     autoPlay: true, // Or other data as needed
-    autoPlayInterval: 3000,
+    slideChangeAutoPlayInterval: 3000,
   };
 
   // @Input() transitionDuration: number = 500;
@@ -93,6 +93,7 @@ export class CarouselComponent implements OnInit {
   // @Input() transitionStyle: 'fade' | 'slide' | 'scale' | 'flip' = 'fade';
 
   currentSlideIndex = 0;
+  autoplayInterval: ReturnType<typeof setInterval> | undefined;
 
   ngOnInit() {
     // setInterval(() => this.nextSlide(), 3000); // Autoplay every 3 seconds
@@ -102,11 +103,15 @@ export class CarouselComponent implements OnInit {
   startAutoplay() {
     this.autoplayInterval = setInterval(() => {
       this.nextSlide();
-    }, 3000); // Adjust interval as needed
+    }, this.carousel.slideChangeAutoPlayInterval); // Adjust interval as needed
   }
 
   stopAutoplay() {
-    clearInterval(this.autoplayInterval);
+    if (this.autoplayInterval) {
+      // Check if the interval exists before clearing
+      clearInterval(this.autoplayInterval);
+      this.autoplayInterval = undefined; // Reset the interval ID
+    }
   }
 
   nextSlide() {
@@ -128,4 +133,8 @@ export class CarouselComponent implements OnInit {
   //   ];
   // }
   // public slideTransitionStyle = this.transitionProperties.transitionStyle;
+
+  ngOnDestroy() {
+    this.stopAutoplay(); // Stop the timer
+  }
 }

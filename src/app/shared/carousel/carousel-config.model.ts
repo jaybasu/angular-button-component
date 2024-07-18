@@ -23,5 +23,5 @@ export interface TransitionProperties {
 
 export interface Carousel {
   autoPlay: boolean; // Or other data as needed
-  autoPlayInterval: number;
+  slideChangeAutoPlayInterval: number;
 }
