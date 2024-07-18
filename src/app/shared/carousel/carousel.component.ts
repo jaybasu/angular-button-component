@@ -57,7 +57,7 @@ export class CarouselComponent implements OnInit {
   @Input() slides: Slide[] = [];
   @Input() transitionProperties: TransitionProperties = {
     // Default values
-    transitionStyle: 'scale',
+    transitionStyle: 'fade',
     slideDirection: 'left',
     transitionDuration: 500, // milliseconds
   };
