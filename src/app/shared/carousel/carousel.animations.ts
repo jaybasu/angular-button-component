@@ -1,14 +1,16 @@
 import { style, animate, animation, keyframes } from '@angular/animations';
 
+import { Slide, TransitionProperties } from './carousel-config.model';
+
 // =========================
 // Enum for referencing animations
 // =========================
-export enum AnimationType {
-  Scale = 'scale',
-  Fade = 'fade',
-  Flip = 'flip',
-  JackInTheBox = 'jackInTheBox',
-}
+// export enum AnimationType {
+//   Scale = 'scale',
+//   Fade = 'fade',
+//   Flip = 'flip',
+//   JackInTheBox = 'jackInTheBox',
+// }
 
 // =========================
 // Scale

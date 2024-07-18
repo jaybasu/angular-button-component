@@ -21,34 +21,50 @@ import {
     trigger('slideAnimation', [
       /* scale */
       transition('void => scale', [
-        useAnimation(scaleIn, { params: { time: '${this.TransitionProperties.transitionDuration}ms' } }),
+        useAnimation(scaleIn, {
+          params: { time: '${this.TransitionProperties.transitionDuration}ms' },
+        }),
       ]),
       transition('scale => void', [
-        useAnimation(scaleOut, { params: { time: '${this.TransitionProperties.transitionDuration}ms' } }),
+        useAnimation(scaleOut, {
+          params: { time: '${this.TransitionProperties.transitionDuration}ms' },
+        }),
       ]),
 
       /* fade */
       transition('void => fade', [
-        useAnimation(fadeIn, { params: { time: '${this.TransitionProperties.transitionDuration}ms' } }),
+        useAnimation(fadeIn, {
+          params: { time: '${this.transitionProperties.transitionDuration}ms' },
+        }),
       ]),
       transition('fade => void', [
-        useAnimation(fadeOut, { params: { time: '${this.TransitionProperties.transitionDuration}ms' } }),
+        useAnimation(fadeOut, {
+          params: { time: '${this.transitionProperties.transitionDuration}ms' },
+        }),
       ]),
 
       /* flip */
       transition('void => flip', [
-        useAnimation(flipIn, { params: { time: '${this.TransitionProperties.transitionDuration}ms' } }),
+        useAnimation(flipIn, {
+          params: { time: '${this.transitionProperties.transitionDuration}ms' },
+        }),
       ]),
       transition('flip => void', [
-        useAnimation(flipOut, { params: { time: '${this.TransitionProperties.transitionDuration}ms' } }),
+        useAnimation(flipOut, {
+          params: { time: '${this.transitionProperties.transitionDuration}ms' },
+        }),
       ]),
 
       /* JackInTheBox */
       transition('void => jackInTheBox', [
-        useAnimation(jackIn, { params: { time: '${this.TransitionProperties.transitionDuration}ms' } }),
+        useAnimation(jackIn, {
+          params: { time: '${this.transitionProperties.transitionDuration}ms' },
+        }),
       ]),
       transition('jackInTheBox => void', [
-        useAnimation(jackOut, { params: { time: '${this.TransitionProperties.transitionDuration}ms' } }),
+        useAnimation(jackOut, {
+          params: { time: '${this.transitionProperties.transitionDuration}ms' },
+        }),
       ]),
     ]),
   ],
@@ -70,6 +86,7 @@ export class CarouselComponent implements OnInit {
 
   ngOnInit() {
     setInterval(() => this.nextSlide(), 3000); // Autoplay every 3 seconds
+    console.log(this.transitionProperties.transitionDuration);
   }
 
   nextSlide() {
