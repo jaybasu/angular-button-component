@@ -1,9 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {
-  transition,
-  trigger,
-  useAnimation,
-} from '@angular/animations';
+import { transition, trigger, useAnimation } from '@angular/animations';
 import { Slide, TransitionProperties } from './carousel-config.model';
 
 import {
@@ -24,10 +20,10 @@ import {
   animations: [
     trigger('slideAnimation', [
       /* fade */
-      transition('void => ${this.transitionProperties.transitionStyle}', [
+      transition('void => fade', [
         useAnimation(fadeIn, { params: { time: '500ms' } }),
       ]),
-      transition('${this.transitionProperties.transitionStyle} => void', [
+      transition('fade => void', [
         useAnimation(fadeOut, { params: { time: '500ms' } }),
       ]),
     ]),
