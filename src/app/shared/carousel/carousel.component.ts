@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { transition, trigger, useAnimation } from '@angular/animations';
-import { Slide, TransitionProperties } from './carousel-config.model';
+import { Slide, TransitionProperties, Carousel } from './carousel-config.model';
 
 import {
   scaleIn,
@@ -20,44 +20,56 @@ import {
   animations: [
     trigger('slideAnimation', [
       /* scale */
-      transition('void => scale', this.createTransitionAnimation(scaleIn)),
-      transition('scale => void', this.createTransitionAnimation(scaleOut)),
+      // transition('void => scale', this.createTransitionAnimation(scaleIn)),
+      // transition('scale => void', this.createTransitionAnimation(scaleOut)),
 
-      // /* fade */
-      // transition('void => fade', [
-      //   useAnimation(fadeIn, {
-      //     params: { time: '${this.transitionProperties.transitionDuration}ms' },
-      //   }),
-      // ]),
-      // transition('fade => void', [
-      //   useAnimation(fadeOut, {
-      //     params: { time: '${this.transitionProperties.transitionDuration}ms' },
-      //   }),
-      // ]),
+      /* scale */
+      transition('void => scale', [
+        useAnimation(scaleIn, {
+          params: { time: '500ms' },
+        }),
+      ]),
+      transition('scale => void', [
+        useAnimation(scaleOut, {
+          params: { time: '500ms' },
+        }),
+      ]),
 
-      // /* flip */
-      // transition('void => flip', [
-      //   useAnimation(flipIn, {
-      //     params: { time: '${this.transitionProperties.transitionDuration}ms' },
-      //   }),
-      // ]),
-      // transition('flip => void', [
-      //   useAnimation(flipOut, {
-      //     params: { time: '${this.transitionProperties.transitionDuration}ms' },
-      //   }),
-      // ]),
+      /* fade */
+      transition('void => fade', [
+        useAnimation(fadeIn, {
+          params: { time: '500ms' },
+        }),
+      ]),
+      transition('fade => void', [
+        useAnimation(fadeOut, {
+          params: { time: '500ms' },
+        }),
+      ]),
 
-      // /* JackInTheBox */
-      // transition('void => jackInTheBox', [
-      //   useAnimation(jackIn, {
-      //     params: { time: '${this.transitionProperties.transitionDuration}ms' },
-      //   }),
-      // ]),
-      // transition('jackInTheBox => void', [
-      //   useAnimation(jackOut, {
-      //     params: { time: '${this.transitionProperties.transitionDuration}ms' },
-      //   }),
-      // ]),
+      /* flip */
+      transition('void => flip', [
+        useAnimation(flipIn, {
+          params: { time: '500ms' },
+        }),
+      ]),
+      transition('flip => void', [
+        useAnimation(flipOut, {
+          params: { time: '500ms' },
+        }),
+      ]),
+
+      /* JackInTheBox */
+      transition('void => jackInTheBox', [
+        useAnimation(jackIn, {
+          params: { time: '500ms' },
+        }),
+      ]),
+      transition('jackInTheBox => void', [
+        useAnimation(jackOut, {
+          params: { time: '500ms' },
+        }),
+      ]),
     ]),
   ],
 })
@@ -70,6 +82,12 @@ export class CarouselComponent implements OnInit {
     transitionDuration: 500, // milliseconds
   };
 
+  @Input() carousel: Carousel = {
+    // Default values
+    autoPlay: true, // Or other data as needed
+    autoPlayInterval: 3000,
+  };
+
   // @Input() transitionDuration: number = 500;
   // @Input() slideDirection?: 'left' | 'right' | 'top' | 'bottom' = 'left';
   // @Input() transitionStyle: 'fade' | 'slide' | 'scale' | 'flip' = 'fade';
@@ -77,8 +95,18 @@ export class CarouselComponent implements OnInit {
   currentSlideIndex = 0;
 
   ngOnInit() {
-    setInterval(() => this.nextSlide(), 3000); // Autoplay every 3 seconds
+    // setInterval(() => this.nextSlide(), 3000); // Autoplay every 3 seconds
     console.log(this.transitionProperties.transitionDuration);
+  }
+
+  startAutoplay() {
+    this.autoplayInterval = setInterval(() => {
+      this.nextSlide();
+    }, 3000); // Adjust interval as needed
+  }
+
+  stopAutoplay() {
+    clearInterval(this.autoplayInterval);
   }
 
   nextSlide() {
@@ -89,14 +117,15 @@ export class CarouselComponent implements OnInit {
     this.currentSlideIndex =
       (this.currentSlideIndex - 1 + this.slides.length) % this.slides.length;
   }
-  createTransitionAnimation(animationFn: AnimationReferenceMetadata) {
-    const duration = this.transitionProperties.transitionDuration ?? 500;
-    console.log(this.transitionProperties.transitionDuration);
-    return [
-      useAnimation(animationFn, {
-        params: { time: `${duration}ms` },
-      }),
-    ];
-  }
+
+  // createTransitionAnimation(animationFn: AnimationReferenceMetadata) {
+  //   const duration = this.transitionProperties.transitionDuration;
+  //   console.log('this.transitionProperties.transitionDuration');
+  //   return [
+  //     useAnimation(animationFn, {
+  //       params: { time: `${duration}ms` },
+  //     }),
+  //   ];
+  // }
   // public slideTransitionStyle = this.transitionProperties.transitionStyle;
 }
