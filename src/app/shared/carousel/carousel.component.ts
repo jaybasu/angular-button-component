@@ -96,14 +96,28 @@ export class CarouselComponent implements OnInit {
   autoplayInterval: ReturnType<typeof setInterval> | undefined;
 
   ngOnInit() {
+    if (this.carousel.autoPlay && this.carousel.slideChangeAutoPlayInterval) {
+      this.startAutoplay();
+    } else {
+      // Handle missing values, ideally with compile-time checks
+      if (!this.carousel.autoPlay) {
+        console.error('Carousel autoplay is disabled.'); // Log for debugging
+        throw new Error('Carousel autoplay is disabled.'); // Optional: throw error
+      }
+      if (!this.carousel.slideChangeAutoPlayInterval) {
+        console.error('slideChangeAutoPlayInterval is required.');
+        throw new Error('slideChangeAutoPlayInterval is required.');
+      }
+    }
     // setInterval(() => this.nextSlide(), 3000); // Autoplay every 3 seconds
-    console.log(this.transitionProperties.transitionDuration);
   }
 
   startAutoplay() {
-    this.autoplayInterval = setInterval(() => {
-      this.nextSlide();
-    }, this.carousel.slideChangeAutoPlayInterval); // Adjust interval as needed
+    if (this.carousel.autoPlay && this.carousel.slideChangeAutoPlayInterval) {
+      this.autoplayInterval = setInterval(() => {
+        this.nextSlide();
+      }, this.carousel.slideChangeAutoPlayInterval);
+    }
   }
 
   stopAutoplay() {
