@@ -29,16 +29,16 @@
 </div>
 
 <!-- carousel -->
-<div class="carousel">
-  <ng-container *ngFor="let slide of slides; let i = index">
-    <img
-      *ngIf="i === currentSlideIndex"
-      [src]="slide.slideImageUrl"
-      class="slide"
-      [@slideAnimation]="transitionProperties.transitionStyle"
-    />
-  </ng-container>
-
+<div class="wrapper-carousel">
+  <ul class="carousel">
+    <li *ngFor="let slide of slides; let i = index" class="slide">
+      <img
+        *ngIf="i === currentSlideIndex"
+        [src]="slide.slideImageUrl"
+        [@slideAnimation]="transitionProperties.transitionStyle"
+      />
+    </li>
+  </ul>
   <!-- controls -->
   <button class="control prev" (click)="prevSlide()">
     <span class="arrow left"></span>
