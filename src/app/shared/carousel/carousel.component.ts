@@ -21,34 +21,34 @@ import {
     trigger('slideAnimation', [
       /* scale */
       transition('void => scale', [
-        useAnimation(scaleIn, { params: { time: '500ms' } }),
+        useAnimation(scaleIn, { params: { time: '${this.TransitionProperties.transitionDuration}ms' } }),
       ]),
       transition('scale => void', [
-        useAnimation(scaleOut, { params: { time: '500ms' } }),
+        useAnimation(scaleOut, { params: { time: '${this.TransitionProperties.transitionDuration}ms' } }),
       ]),
 
       /* fade */
       transition('void => fade', [
-        useAnimation(fadeIn, { params: { time: '500ms' } }),
+        useAnimation(fadeIn, { params: { time: '${this.TransitionProperties.transitionDuration}ms' } }),
       ]),
       transition('fade => void', [
-        useAnimation(fadeOut, { params: { time: '500ms' } }),
+        useAnimation(fadeOut, { params: { time: '${this.TransitionProperties.transitionDuration}ms' } }),
       ]),
 
       /* flip */
       transition('void => flip', [
-        useAnimation(flipIn, { params: { time: '500ms' } }),
+        useAnimation(flipIn, { params: { time: '${this.TransitionProperties.transitionDuration}ms' } }),
       ]),
       transition('flip => void', [
-        useAnimation(flipOut, { params: { time: '500ms' } }),
+        useAnimation(flipOut, { params: { time: '${this.TransitionProperties.transitionDuration}ms' } }),
       ]),
 
       /* JackInTheBox */
       transition('void => jackInTheBox', [
-        useAnimation(jackIn, { params: { time: '700ms' } }),
+        useAnimation(jackIn, { params: { time: '${this.TransitionProperties.transitionDuration}ms' } }),
       ]),
       transition('jackInTheBox => void', [
-        useAnimation(jackOut, { params: { time: '700ms' } }),
+        useAnimation(jackOut, { params: { time: '${this.TransitionProperties.transitionDuration}ms' } }),
       ]),
     ]),
   ],
@@ -57,7 +57,7 @@ export class CarouselComponent implements OnInit {
   @Input() slides: Slide[] = [];
   @Input() transitionProperties: TransitionProperties = {
     // Default values
-    transitionStyle: 'fade',
+    transitionStyle: 'scale',
     slideDirection: 'left',
     transitionDuration: 500, // milliseconds
   };

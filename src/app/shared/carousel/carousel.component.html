@@ -31,18 +31,18 @@
 <!-- carousel -->
 <div class="container--carousel">
   <ul class="container--slides">
-    <li
-      *ngFor="let slide of slides; let i = index"
+    <ng-container *ngFor="let slide of slides; let i = index">
+    <li *ngIf="i === currentSlideIndex"
       class="container--slide"
       [ngClass]="{ active: i === currentSlideIndex }"
     >
       <img
-        *ngIf="i === currentSlideIndex"
         [src]="slide.slideImageUrl"
         width="20%"
         [@slideAnimation]="transitionProperties.transitionStyle"
       />
     </li>
+    </ng-container>
   </ul>
   <!-- controls -->
   <button class="control prev" (click)="prevSlide()">
