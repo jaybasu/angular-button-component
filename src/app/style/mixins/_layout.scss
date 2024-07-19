@@ -1,0 +1,109 @@
+@import './flexbox';
+
+// TODO :: This mixin needs to be depricated over time.
+@mixin container-layout($orientation, $justifyContent, $alignItems) {
+  @include flexbox;
+  @include flex-direction($orientation);
+  @include justify-content($justifyContent);
+  @include align-items($alignItems);
+
+  > * {
+    flex: 0 1 auto;
+  }
+
+  //@if $justifyContent==space-between or $justifyContent==space-around or $justifyContent==space-evenly {
+  //  > * {
+  //    flex: 1;
+  //  }
+  //} @else {
+  //  > * {
+  //    flex: 0 1 auto;
+  //  }
+  //}
+}
+
+// TODO :: This mixin will be used over time.
+$containerRules: [ [row, space-between, center], [row, space-between,
+  flex-start], [row, space-between, flex-end], [row, flex-start, center], [row,
+  flex-start, flex-start], [row, flex-start, flex-end], [row, flex-end, center],
+  [row, flex-end, flex-start], [row, flex-end, flex-end], [row, center, center],
+  [row, center, flex-start], [row, center, flex-end], [row, space-around,
+  center], [row, space-around, flex-start], [row, space-around, flex-end], [row,
+  space-evenly, center], [row, space-evenly, flex-start], [row, space-evenly,
+  flex-end], [column, space-between, center], [column, space-between,
+  flex-start], [column, space-between, flex-end], [column, flex-start, center],
+  [column, flex-start, flex-start], [column, flex-start, flex-end], [column,
+  flex-end, center], [column, flex-end, flex-start], [column, flex-end,
+  flex-end], [column, center, center], [column, center, flex-start], [column,
+  center, flex-end], [column, space-around, center], [column, space-around,
+  flex-start], [column, space-around, flex-end], [column, space-evenly, center],
+  [column, space-evenly, flex-start], [column, space-evenly, flex-end], ];
+
+@mixin flex-container-layout($orientation, $justifyContent, $alignItems) {
+  .container__#{$orientation}--#{$justifyContent}--#{$alignItems} {
+    @include flexbox;
+    @include flex-direction(#{$orientation});
+    @include justify-content(#{$justifyContent});
+    @include align-items(#{$alignItems});
+    > * {
+      flex: 0 1 auto;
+    }
+
+    //@if $justifyContent==space-between or $justifyContent==space-around or $justifyContent==space-evenly {
+    //  > * {
+    //    flex: 1;
+    //  }
+    //} @else {
+    //  > * {
+    //    flex: 0 1 auto;
+    //  }
+    //}
+    & > legend {
+      float: left;
+    }
+  }
+}
+
+@each $item in $containerRules {
+  @include flex-container-layout(nth($item, 1), nth($item, 2), nth($item, 3));
+}
+
+// TODO :: This mixin will be used over time as final version
+$flexPropertyMap: (
+  ('row' 'column')
+    (
+      'flex-start' 'center' 'flex-end' 'space-between' 'space-around'
+        'space-evenly'
+    )
+    ('stretch' 'flex-start' 'center' 'flex-end' 'baseline')
+);
+
+//Nested loop
+@each $orientations, $justifyContents, $alignItems in $flexPropertyMap {
+  @each $orientation in $orientations {
+    .container-layout__#{$orientation} {
+      @include flexbox;
+      @include flex-direction(#{$orientation});
+      > * {
+        flex: 1;
+      }
+    }
+
+    @each $justifyContent in $justifyContents {
+      @each $alignItem in $alignItems {
+        .container__#{$orientation}--#{$justifyContent}--#{$alignItem} {
+          @include flexbox;
+          @include flex-direction(#{$orientation});
+          @include justify-content(#{$justifyContent});
+          @include align-items(#{$alignItem});
+          > * {
+            flex: 0 1 auto;
+          }
+          & > legend {
+            float: left;
+          }
+        }
+      }
+    }
+  }
+}

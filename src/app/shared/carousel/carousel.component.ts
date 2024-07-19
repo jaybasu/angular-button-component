@@ -84,6 +84,7 @@ export class CarouselComponent implements OnInit {
 
   @Input() carousel: Carousel = {
     // Default values
+    description: 'Ascendion AVA Play Carousel',
     autoPlay: true, // Or other data as needed
     slideChangeAutoPlayInterval: 3000,
   };
@@ -108,7 +109,9 @@ export class CarouselComponent implements OnInit {
       console.error('slideChangeAutoPlayInterval is missing or invalid.');
       return;
     }
-    this.startAutoplay();
+    if (this.carousel.autoPlay) {
+      this.startAutoplay();
+    }
   }
 
   startAutoplay() {

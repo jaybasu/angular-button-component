@@ -1,4 +1,4 @@
-<div class="carousel-container">
+<!-- <div class="carousel-container">
   <div class="slide-container">
     <div
       class="slide"
@@ -26,10 +26,15 @@
 
   <button class="prev-btn" (click)="prevSlide()">&lt;</button>
   <button class="next-btn" (click)="nextSlide()">&gt;</button>
-</div>
+</div> -->
 
 <!-- carousel -->
-<div class="container--carousel">
+<div
+  class="container--carousel"
+  role="region"
+  aria-roledescription="carousel"
+  [attr.aria-label]="carousel.description"
+>
   <ul class="container--slides">
     <ng-container *ngFor="let slide of slides; let i = index">
       <li
@@ -46,6 +51,22 @@
     </ng-container>
   </ul>
   <!-- controls -->
+  <div class="container__row--center--center">
+    <button
+      *ngFor="let slide of slides; let i = index"
+      (click)="currentSlideIndex = i"
+      [ngClass]="{ active: i === currentSlideIndex }"
+    >
+      <span class="sr-only">Show slide {{ i + 1 }} of {{ slides.length }}</span>
+    </button>
+    <!-- <span
+      class="dot"
+      *ngFor="let slide of slides; let i = index"
+      (click)="currentSlideIndex = i"
+      [ngClass]="{ active: i === currentSlideIndex }"
+      >A</span
+    > -->
+  </div>
   <button class="control prev" (click)="prevSlide()">
     <span class="arrow left"></span>
   </button>
