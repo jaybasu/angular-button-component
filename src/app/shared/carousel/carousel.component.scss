@@ -1,6 +1,8 @@
-@import '../../style/settings/color';
-@import '../../style/mixins/common';
-@import '../../style/mixins/layout';
+@use '../../style/settings/color';
+@use '../../style/settings/fonts';
+@use '../../style/mixins/common';
+@use '../../style/mixins/layout';
+@use '../../style/text/text';
 
 // =========================
 // Carousel
@@ -50,6 +52,13 @@
   // &.active {
   //   order: 1;
   // }
+}
+
+#dotsContainer.container__row--center--center {
+  button {
+    border: none;
+    // @include $bo
+  }
 }
 // .slide {
 //   // position: absolute;
