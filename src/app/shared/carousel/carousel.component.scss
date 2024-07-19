@@ -1,8 +1,8 @@
 @use '../../style/settings/color';
-@use '../../style/settings/fonts';
+// @use '../../style/settings/fonts';
 @use '../../style/mixins/common';
 @use '../../style/mixins/layout';
-@use '../../style/text/text';
+// @use '../../style/text/text';
 
 // =========================
 // Carousel
@@ -128,3 +128,13 @@
 //     transform: rotate(225deg);
 //   }
 // }
+
+.visually-hidden, .sr-only {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 0.1em;
+  width: 0.1em;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
