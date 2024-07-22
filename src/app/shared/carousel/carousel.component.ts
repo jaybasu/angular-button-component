@@ -113,16 +113,7 @@ export class CarouselComponent implements OnInit {
     }
     if (this.carousel.autoPlay) {
       this.startAutoplay();
-
-      console.log(this.setCarouselDimentions());
     }
-  }
-
-  setCarouselDimentions(): Object {
-    return {
-      width: this.carousel.width + 'px',
-      height: this.carousel.height + 'px',
-    };
   }
 
   startAutoplay() {
