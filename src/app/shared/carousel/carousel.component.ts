@@ -84,6 +84,8 @@ export class CarouselComponent implements OnInit {
 
   @Input() carousel: Carousel = {
     // Default values
+    width: 1000,
+    height: 350,
     description: 'Ascendion AVA Play Carousel',
     autoPlay: true, // Or other data as needed
     slideChangeAutoPlayInterval: 3000,
@@ -116,8 +118,8 @@ export class CarouselComponent implements OnInit {
 
   setCarouselDimentions(): Object {
     return {
-      width: this.divWidth + 'px',
-      height: this.divHeight + 'px',
+      width: this.carousel.width + 'px',
+      height: this.carousel.height + 'px',
     };
   }
 
