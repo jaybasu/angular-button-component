@@ -31,6 +31,24 @@ export const scaleOut = animation([
 ]);
 
 // =========================
+// Slide
+// =========================
+export const slideIn = animation([
+  style({ opacity: 0.5, transform: 'translateX(0)' }), // start state
+  animate(
+    '{{time}} cubic-bezier(0.785, 0.135, 0.15, 0.86)',
+    style({ opacity: 1, transform: 'translateX(100%)' })
+  ),
+]);
+
+export const slideOut = animation([
+  animate(
+    '{{time}} cubic-bezier(0.785, 0.135, 0.15, 0.86)',
+    style({ opacity: 0.5, transform: 'translateX(0%)' })
+  ),
+]);
+
+// =========================
 // Fade
 // =========================
 export const fadeIn = animation([

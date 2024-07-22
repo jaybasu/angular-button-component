@@ -5,6 +5,8 @@ import { Slide, TransitionProperties, Carousel } from './carousel-config.model';
 import {
   scaleIn,
   scaleOut,
+  slideIn,
+  slideOut,
   fadeIn,
   fadeOut,
   flipIn,
@@ -31,6 +33,18 @@ import {
       ]),
       transition('scale => void', [
         useAnimation(scaleOut, {
+          params: { time: '500ms' },
+        }),
+      ]),
+
+      /* slide */
+      transition('void => slide', [
+        useAnimation(slideIn, {
+          params: { time: '500ms' },
+        }),
+      ]),
+      transition('slide => void', [
+        useAnimation(slideOut, {
           params: { time: '500ms' },
         }),
       ]),
@@ -77,7 +91,7 @@ export class CarouselComponent implements OnInit {
   @Input() slides: Slide[] = [];
   @Input() transitionProperties: TransitionProperties = {
     // Default values
-    transitionStyle: 'scale',
+    transitionStyle: 'slide',
     slideDirection: 'left',
     transitionDuration: 500, // milliseconds
   };
