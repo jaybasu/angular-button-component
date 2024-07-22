@@ -34,8 +34,8 @@
   role="region"
   aria-roledescription="carousel"
   [attr.aria-label]="carousel.description"
-  attr.width="{{this.carousel.width}}px"
-  attr.height="{{this.carousel.height}}px"
+  attr.width="{{ this.carousel.width }}px"
+  attr.height="{{ this.carousel.height }}px"
 >
   <ul class="container--slides">
     <ng-container *ngFor="let slide of slides; let i = index">
@@ -46,8 +46,9 @@
       >
         <img
           [src]="slide.slideImageUrl"
-          [@slideAnimation]="transitionProperties.transitionStyle"
+          [@slideAnimation]="this.transitionProperties.transitionStyle"
         />
+        {{ this.transitionProperties.transitionStyle }}
       </li>
     </ng-container>
   </ul>

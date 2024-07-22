@@ -100,7 +100,7 @@ export class AppComponent implements OnInit {
 
   public test: TransitionProperties = {
     // Default values
-    transitionStyle: 'scale',
+    transitionStyle: 'slide',
     slideDirection: 'left',
     transitionDuration: 500,
   };
