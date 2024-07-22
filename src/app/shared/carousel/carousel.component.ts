@@ -114,6 +114,13 @@ export class CarouselComponent implements OnInit {
     }
   }
 
+  setCarouselDimentions(): Object {
+    return {
+      width: this.divWidth + 'px',
+      height: this.divHeight + 'px',
+    };
+  }
+
   startAutoplay() {
     this.autoplayInterval = setInterval(() => {
       this.nextSlide();

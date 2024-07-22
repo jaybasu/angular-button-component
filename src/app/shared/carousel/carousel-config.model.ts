@@ -22,6 +22,8 @@ export interface TransitionProperties {
 }
 
 export interface Carousel {
+  width: number;
+  height: number;
   description: string; // Provide carousel description
   autoPlay: boolean; // To turn on or off the autoplay feature
   slideChangeAutoPlayInterval: number; // Interval time between one slide to another slide change
