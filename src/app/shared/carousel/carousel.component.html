@@ -33,7 +33,8 @@
   class="container--carousel"
   role="region"
   aria-roledescription="carousel"
-  [attr.aria-label]="carousel.description" [ngClass]="setCarouselDimentions()"
+  [attr.aria-label]="carousel.description"
+  [ngClass]="setCarouselDimentions()"
 >
   <ul class="container--slides">
     <ng-container *ngFor="let slide of slides; let i = index">

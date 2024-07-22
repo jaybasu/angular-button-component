@@ -121,6 +121,7 @@ export class CarouselComponent implements OnInit {
       width: this.carousel.width + 'px',
       height: this.carousel.height + 'px',
     };
+    console.log(this);
   }
 
   startAutoplay() {
