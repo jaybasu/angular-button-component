@@ -113,6 +113,8 @@ export class CarouselComponent implements OnInit {
     }
     if (this.carousel.autoPlay) {
       this.startAutoplay();
+
+      console.log(this.setCarouselDimentions());
     }
   }
 
@@ -121,7 +123,6 @@ export class CarouselComponent implements OnInit {
       width: this.carousel.width + 'px',
       height: this.carousel.height + 'px',
     };
-    console.log(this);
   }
 
   startAutoplay() {
