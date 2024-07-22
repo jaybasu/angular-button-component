@@ -34,7 +34,8 @@
   role="region"
   aria-roledescription="carousel"
   [attr.aria-label]="carousel.description"
-  [ngClass]="setCarouselDimentions()"
+  attr.width="{{this.carousel.width}}px"
+  attr.height="{{this.carousel.height}}px"
 >
   <ul class="container--slides">
     <ng-container *ngFor="let slide of slides; let i = index">
