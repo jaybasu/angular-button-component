@@ -37,17 +37,26 @@ import {
         }),
       ]),
 
-      /* slide */
-      transition('void => slide', [
-        useAnimation(slideIn, {
-          params: { time: '500ms' },
-        }),
-      ]),
-      transition('slide => void', [
-        useAnimation(slideOut, {
-          params: { time: '500ms' },
-        }),
-      ]),
+      // /* slide */
+      // transition('void => slide', [
+      //   useAnimation(slideIn, {
+      //     params: { time: '1500ms' },
+      //   }),
+      // ]),
+      // transition('slide => void', [
+      //   useAnimation(slideOut, {
+      //     params: { time: '1500ms' },
+      //   }),
+      // ]),
+
+      transition(
+        ':increment',
+        useAnimation(slideIn, { params: { time: '500ms' } })
+      ),
+      transition(
+        ':decrement',
+        useAnimation(slideOut, { params: { time: '500ms' } })
+      ),
 
       /* fade */
       transition('void => fade', [

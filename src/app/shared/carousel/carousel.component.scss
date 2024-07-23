@@ -46,6 +46,7 @@ $carousel-dots-border-color: rgba(color.$dark-2, 1);
   align-items: center;
   margin: 0;
   padding: 0;
+  // overflow: hidden;
   &.row {
     flex-direction: row;
   }
@@ -57,16 +58,21 @@ $carousel-dots-border-color: rgba(color.$dark-2, 1);
 .container--slide {
   flex: 0 0 100%;
   border: 1px solid black;
-  // transform: translateX(-100%);
   // order: 2;
+  // transform: translateX(-100%);
   //   display: none;
   // &.active {
   //   order: 1;
   // }
+  // display: none;
   img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+  &.active {
+    // display: inline-block;
+    // order: 1;
   }
 }
 

@@ -37,18 +37,17 @@
   attr.width="{{ this.carousel.width }}px"
   attr.height="{{ this.carousel.height }}px"
 >
+  <!--       *ngIf="i === currentSlideIndex" -->
   <ul class="container--slides">
     <ng-container *ngFor="let slide of slides; let i = index">
       <li
         *ngIf="i === currentSlideIndex"
         class="container--slide"
         [ngClass]="{ active: i === currentSlideIndex }"
+        [@slideAnimation]="this.transitionProperties.transitionStyle"
       >
-        <img
-          [src]="slide.slideImageUrl"
-          [@slideAnimation]="this.transitionProperties.transitionStyle"
-        />
-        {{ this.transitionProperties.transitionStyle }}
+        <img [src]="slide.slideImageUrl" />
+        {{ this.transitionProperties.transitionStyle }}+{{ i }}
       </li>
     </ng-container>
   </ul>

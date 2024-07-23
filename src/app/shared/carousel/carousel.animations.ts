@@ -30,21 +30,41 @@ export const scaleOut = animation([
   ),
 ]);
 
+// // =========================
+// // Slide
+// // =========================
+// export const slideOut = animation([
+//   // style({ opacity: 1, transform: 'translateX(100%)' }), // start state
+//   animate(
+//     '{{time}} cubic-bezier(0.785, 0.135, 0.15, 0.86)',
+//     style({ opacity: 0.5, transform: 'translateX(-100%)' })
+//   ),
+// ]);
+
+// export const slideIn = animation([
+//   style({ opacity: 1 }),
+//   animate(
+//     '{{time}} cubic-bezier(0.785, 0.135, 0.15, 0.86)',
+//     style({ opacity: 0.5, transform: 'translateX(-100%)' })
+//   ),
+// ]);
+
 // =========================
-// Slide
+// Slide - NEW
 // =========================
-export const slideIn = animation([
-  style({ opacity: 0.5, transform: 'translateX(0)' }), // start state
+export const slideOut = animation([
+  // style({ opacity: 1, transform: 'translateX(100%)' }), // start state
   animate(
     '{{time}} cubic-bezier(0.785, 0.135, 0.15, 0.86)',
-    style({ opacity: 1, transform: 'translateX(100%)' })
+    style({ transform: 'translateX(-100%)', opacity: 0 })
   ),
 ]);
 
-export const slideOut = animation([
+export const slideIn = animation([
+  style({ transform: 'translateX(100%)', opacity: 0 }),
   animate(
     '{{time}} cubic-bezier(0.785, 0.135, 0.15, 0.86)',
-    style({ opacity: 0.5, transform: 'translateX(0%)' })
+    style({ transform: 'translateX(0%)', opacity: 1 })
   ),
 ]);
 
