@@ -1,18 +1,18 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { transition, trigger, useAnimation } from '@angular/animations';
+import { transition, trigger, useAnimation, group } from '@angular/animations';
 import { Slide, TransitionProperties, Carousel } from './carousel-config.model';
 
 import {
   scaleIn,
   scaleOut,
-  slideIn,
-  slideOut,
   fadeIn,
   fadeOut,
   flipIn,
   flipOut,
   jackIn,
   jackOut,
+  slideOutLeft,
+  slideInRight,
 } from './carousel.animations';
 
 @Component({
@@ -51,11 +51,18 @@ import {
 
       transition(
         ':increment',
-        useAnimation(slideIn, { params: { time: '500ms' } })
+        group([
+          useAnimation(slideOutLeft, { params: { time: '{{duration}}s' } }),
+          useAnimation(slideInRight, { params: { time: '{{duration}}s' } }),
+        ])
       ),
       transition(
         ':decrement',
-        useAnimation(slideOut, { params: { time: '500ms' } })
+        group([
+          // Reverse the animations for the decrement transition
+          useAnimation(slideInRight, { params: { time: '{{duration}}s' } }),
+          useAnimation(slideOutLeft, { params: { time: '{{duration}}s' } }),
+        ])
       ),
 
       /* fade */

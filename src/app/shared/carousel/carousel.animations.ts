@@ -52,19 +52,18 @@ export const scaleOut = animation([
 // =========================
 // Slide - NEW
 // =========================
-export const slideOut = animation([
-  // style({ opacity: 1, transform: 'translateX(100%)' }), // start state
+export const slideOutLeft = animation([
   animate(
     '{{time}} cubic-bezier(0.785, 0.135, 0.15, 0.86)',
-    style({ transform: 'translateX(-100%)', opacity: 0 })
+    style({ transform: 'translateX(-100%)' })
   ),
 ]);
 
-export const slideIn = animation([
-  style({ transform: 'translateX(100%)', opacity: 0 }),
+export const slideInRight = animation([
+  style({ transform: 'translateX(100%)' }),
   animate(
     '{{time}} cubic-bezier(0.785, 0.135, 0.15, 0.86)',
-    style({ transform: 'translateX(0%)', opacity: 1 })
+    style({ transform: 'translateX(0%)' })
   ),
 ]);
 
