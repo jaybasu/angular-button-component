@@ -28,24 +28,24 @@ export const scaleOut = animation([
   ),
 ]);
 
-// // =========================
-// // Slide
-// // =========================
-// export const slideOut = animation([
-//   // style({ opacity: 1, transform: 'translateX(100%)' }), // start state
-//   animate(
-//     '{{time}} cubic-bezier(0.785, 0.135, 0.15, 0.86)',
-//     style({ opacity: 0.5, transform: 'translateX(-100%)' })
-//   ),
-// ]);
+// =========================
+// Slide
+// =========================
+export const slideOut = animation([
+  // style({ opacity: 1, transform: 'translateX(100%)' }), // start state
+  animate(
+    '{{time}} cubic-bezier(0.785, 0.135, 0.15, 0.86)',
+    style({ opacity: 0.5, transform: 'translateX(-100%)' })
+  ),
+]);
 
-// export const slideIn = animation([
-//   style({ opacity: 1 }),
-//   animate(
-//     '{{time}} cubic-bezier(0.785, 0.135, 0.15, 0.86)',
-//     style({ opacity: 0.5, transform: 'translateX(-100%)' })
-//   ),
-// ]);
+export const slideIn = animation([
+  style({ opacity: 1 }),
+  animate(
+    '{{time}} cubic-bezier(0.785, 0.135, 0.15, 0.86)',
+    style({ opacity: 0.5, transform: 'translateX(-100%)' })
+  ),
+]);
 
 // // =========================
 // // Slide - NEW
@@ -66,22 +66,22 @@ export const scaleOut = animation([
 //   ),
 // ]);
 
-// =========================
-// Slide - NEW - Modified
-// =========================
-export const slideOutLeft = animation([
-  animate(
-    '{{time}} cubic-bezier(0.785, 0.135, 0.15, 0.86)',
-    style({ transform: 'translateX(-100%)' })
-  ),
-]);
+// // =========================
+// // Slide - NEW - Modified
+// // =========================
+// export const slideOutLeft = animation([
+//   animate(
+//     '{{time}} cubic-bezier(0.785, 0.135, 0.15, 0.86)',
+//     style({ transform: 'translateX(-100%)' })
+//   ),
+// ]);
 
-export const slideInRight = animation([
-  animate(
-    '{{time}} cubic-bezier(0.785, 0.135, 0.15, 0.86)',
-    style({ transform: 'translateX(-100%)' })
-  ),
-]);
+// export const slideInRight = animation([
+//   animate(
+//     '{{time}} cubic-bezier(0.785, 0.135, 0.15, 0.86)',
+//     style({ transform: 'translateX(-100%)' })
+//   ),
+// ]);
 
 // =========================
 // Fade
