@@ -1,7 +1,5 @@
 import { style, animate, animation, keyframes } from '@angular/animations';
 
-import { Slide, TransitionProperties } from './carousel-config.model';
-
 // =========================
 // Enum for referencing animations
 // =========================
@@ -49,8 +47,27 @@ export const scaleOut = animation([
 //   ),
 // ]);
 
+// // =========================
+// // Slide - NEW
+// // =========================
+// export const slideOutLeft = animation([
+//   style({ transform: 'translateX(0%)' }),
+//   animate(
+//     '{{time}} cubic-bezier(0.785, 0.135, 0.15, 0.86)',
+//     style({ transform: 'translateX(-100%)' })
+//   ),
+// ]);
+
+// export const slideInRight = animation([
+//   style({ transform: 'translateX(100%)' }),
+//   animate(
+//     '{{time}} cubic-bezier(0.785, 0.135, 0.15, 0.86)',
+//     style({ transform: 'translateX(0%)' })
+//   ),
+// ]);
+
 // =========================
-// Slide - NEW
+// Slide - NEW - Modified
 // =========================
 export const slideOutLeft = animation([
   animate(
@@ -60,10 +77,9 @@ export const slideOutLeft = animation([
 ]);
 
 export const slideInRight = animation([
-  style({ transform: 'translateX(100%)' }),
   animate(
     '{{time}} cubic-bezier(0.785, 0.135, 0.15, 0.86)',
-    style({ transform: 'translateX(0%)' })
+    style({ transform: 'translateX(-100%)' })
   ),
 ]);
 

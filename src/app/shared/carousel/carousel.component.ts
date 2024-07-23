@@ -5,14 +5,14 @@ import { Slide, TransitionProperties, Carousel } from './carousel-config.model';
 import {
   scaleIn,
   scaleOut,
+  slideOutLeft,
+  slideInRight,
   fadeIn,
   fadeOut,
   flipIn,
   flipOut,
   jackIn,
   jackOut,
-  slideOutLeft,
-  slideInRight,
 } from './carousel.animations';
 
 @Component({
@@ -50,18 +50,18 @@ import {
       // ]),
 
       transition(
-        ':increment',
+        'void => slide',
         group([
-          useAnimation(slideOutLeft, { params: { time: '{{duration}}s' } }),
-          useAnimation(slideInRight, { params: { time: '{{duration}}s' } }),
+          useAnimation(slideOutLeft, { params: { time: '2s' } }),
+          useAnimation(slideInRight, { params: { time: '2s' } }),
         ])
       ),
       transition(
-        ':decrement',
+        'slide => void',
         group([
           // Reverse the animations for the decrement transition
-          useAnimation(slideInRight, { params: { time: '{{duration}}s' } }),
-          useAnimation(slideOutLeft, { params: { time: '{{duration}}s' } }),
+          useAnimation(slideInRight, { params: { time: '2s' } }),
+          useAnimation(slideOutLeft, { params: { time: '2s' } }),
         ])
       ),
 
