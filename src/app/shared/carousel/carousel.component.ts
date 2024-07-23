@@ -5,8 +5,10 @@ import { Slide, TransitionProperties, Carousel } from './carousel-config.model';
 import {
   scaleIn,
   scaleOut,
-  slideOutLeft,
-  slideInRight,
+  // slideOutLeft,
+  // slideInRight,
+  slideIn,
+  slideOut,
   fadeIn,
   fadeOut,
   flipIn,
@@ -37,33 +39,33 @@ import {
         }),
       ]),
 
-      // /* slide */
-      // transition('void => slide', [
-      //   useAnimation(slideIn, {
-      //     params: { time: '1500ms' },
-      //   }),
-      // ]),
-      // transition('slide => void', [
-      //   useAnimation(slideOut, {
-      //     params: { time: '1500ms' },
-      //   }),
-      // ]),
+      /* slide */
+      transition('void => slide', [
+        useAnimation(slideIn, {
+          params: { time: '1500ms' },
+        }),
+      ]),
+      transition('slide => void', [
+        useAnimation(slideOut, {
+          params: { time: '1500ms' },
+        }),
+      ]),
 
-      transition(
-        'void => slide',
-        group([
-          useAnimation(slideOutLeft, { params: { time: '2s' } }),
-          useAnimation(slideInRight, { params: { time: '2s' } }),
-        ])
-      ),
-      transition(
-        'slide => void',
-        group([
-          // Reverse the animations for the decrement transition
-          useAnimation(slideInRight, { params: { time: '2s' } }),
-          useAnimation(slideOutLeft, { params: { time: '2s' } }),
-        ])
-      ),
+      // transition(
+      //   'void => slide',
+      //   group([
+      //     useAnimation(slideOutLeft, { params: { time: '2s' } }),
+      //     useAnimation(slideInRight, { params: { time: '2s' } }),
+      //   ])
+      // ),
+      // transition(
+      //   'slide => void',
+      //   group([
+      //     // Reverse the animations for the decrement transition
+      //     useAnimation(slideInRight, { params: { time: '2s' } }),
+      //     useAnimation(slideOutLeft, { params: { time: '2s' } }),
+      //   ])
+      // ),
 
       /* fade */
       transition('void => fade', [
