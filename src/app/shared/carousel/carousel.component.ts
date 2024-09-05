@@ -40,14 +40,14 @@ import {
       ]),
 
       /* slide */
-      transition('void => slide', [
+      transition(':enter', [
         useAnimation(slideIn, {
-          params: { time: '1500ms' },
+          params: { time: '500ms' },
         }),
       ]),
-      transition('slide => void', [
+      transition(':leave', [
         useAnimation(slideOut, {
-          params: { time: '1500ms' },
+          params: { time: '500ms' },
         }),
       ]),
 
